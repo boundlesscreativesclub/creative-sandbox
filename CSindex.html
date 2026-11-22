@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creative Sandbox | Boundless Creatives Club</title>
+<meta name="description" content="Sign up for Creative Sandbox by Boundless Creatives Club.">
+<link rel="icon" type="image/png" href="logo-blue.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lime: #d6ed48;
+    --indigo: #4a4de0;
+    --sky: #abc4ff;
+    --cloud: #f5f9ff;
+    --ink: #1e1f5c;
+    --muted: #5a5c8a;
+    --white: #ffffff;
+    --danger: #c0392b;
+    --jag: polygon(1% 4%, 30% 0%, 72% 2%, 100% 0%, 98% 46%, 100% 96%, 64% 100%, 22% 97%, 0% 100%, 2% 52%);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--cloud);
+    line-height: 1.55;
+  }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", "DM Sans", sans-serif; line-height: 1.05; margin: 0; }
+  a { color: var(--indigo); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--indigo);
+    color: var(--white);
+    padding: 28px 20px 96px;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 78% 94%, 52% 89%, 24% 97%, 0 91%);
+  }
+  .hero-inner { max-width: 1040px; margin: 0 auto; position: relative; z-index: 1; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { width: 64px; height: auto; display: block; }
+  .brand span { font-weight: 700; letter-spacing: .18em; font-size: 12px; text-transform: uppercase; color: var(--sky); }
+  .eyebrow {
+    margin-top: 56px;
+    display: inline-block;
+    background: var(--lime);
+    color: var(--indigo);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    clip-path: var(--jag);
+  }
+  .hero h1 {
+    margin-top: 18px;
+    font-size: clamp(48px, 11vw, 112px);
+    font-weight: 800;
+    color: var(--lime);
+    letter-spacing: -0.02em;
+  }
+  .tagline { margin: 18px 0 0; max-width: 560px; font-size: clamp(17px, 2.4vw, 21px); color: var(--cloud); }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .chip {
+    background: rgba(255,255,255,.12);
+    border: 1.5px solid var(--sky);
+    color: var(--white);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .chip b { color: var(--lime); font-weight: 700; }
+  .shape {
+    position: absolute; z-index: 0; opacity: .9;
+    clip-path: polygon(20% 0, 78% 6%, 100% 40%, 88% 92%, 40% 100%, 0 70%, 6% 22%);
+  }
+  .shape.one { width: 220px; height: 220px; background: var(--sky); opacity: .18; right: -40px; top: 40px; }
+  .shape.two { width: 120px; height: 120px; background: var(--lime); right: 12%; bottom: 70px; transform: rotate(18deg); }
+  @media (max-width: 640px) { .shape.two { width: 70px; height: 70px; right: 6%; bottom: 60px; } }
+
+  /* ---------- Main ---------- */
+  main { max-width: 1040px; margin: -40px auto 0; padding: 0 20px 64px; position: relative; z-index: 2; }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  @media (min-width: 880px) { .grid { grid-template-columns: 0.9fr 1.1fr; align-items: start; } }
+
+  .about { padding-top: 56px; }
+  .about h2 { font-size: 30px; color: var(--indigo); }
+  .about p { color: var(--muted); font-size: 17px; white-space: pre-line; }
+  .included { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; }
+  .included li {
+    background: var(--white);
+    border-left: 6px solid var(--lime);
+    padding: 12px 16px;
+    font-weight: 500;
+  }
+  .included li small { display: block; color: var(--muted); font-weight: 400; }
+
+  .card {
+    background: var(--white);
+    border: 2px solid var(--indigo);
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 8px 8px 0 var(--sky);
+  }
+  @media (min-width: 640px) { .card { padding: 36px 36px; } }
+  .card h2 { font-size: 32px; color: var(--indigo); }
+  .seats { margin: 8px 0 22px; color: var(--muted); font-size: 15px; }
+  .seats b { color: var(--indigo); }
+
+  /* ---------- Form ---------- */
+  .field { margin-bottom: 18px; }
+  label, .label { display: block; font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .hint { font-weight: 400; color: var(--muted); font-size: 13px; }
+  input[type=text], input[type=email], input[type=tel], textarea, select {
+    width: 100%;
+    font: inherit;
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--cloud);
+    border: 1.5px solid #cdd8f5;
+    border-radius: 12px;
+    padding: 12px 14px;
+    transition: border-color .15s, background .15s;
+  }
+  textarea { min-height: 84px; resize: vertical; }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--indigo); background: var(--white); }
+  .invalid { border-color: var(--danger) !important; }
+
+  .tickets { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ticket input { position: absolute; opacity: 0; pointer-events: none; }
+  .ticket span {
+    display: block;
+    border: 2px solid #cdd8f5;
+    border-radius: 14px;
+    padding: 14px;
+    cursor: pointer;
+    background: var(--cloud);
+    transition: all .15s;
+    height: 100%;
+  }
+  .ticket strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 26px; color: var(--indigo); }
+  .ticket em { font-style: normal; color: var(--muted); font-size: 14px; }
+  .ticket input:checked + span { border-color: var(--indigo); background: var(--lime); }
+  .ticket input:focus-visible + span { outline: 3px solid var(--sky); outline-offset: 2px; }
+  .ticket input:disabled + span { opacity: .45; cursor: not-allowed; }
+
+  .friend { display: none; background: var(--cloud); border-radius: 14px; padding: 16px 16px 2px; margin-bottom: 18px; }
+  .friend.show { display: block; }
+  .friend input { background: var(--white); }
+
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .consent { display: flex; gap: 12px; align-items: flex-start; background: var(--cloud); padding: 14px; border-radius: 12px; margin: 6px 0 22px; }
+  .consent input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--indigo); flex-shrink: 0; }
+  .consent label { font-weight: 400; font-size: 14px; margin: 0; }
+
+  .btn {
+    display: block; width: 100%;
+    font: 700 18px "DM Sans", sans-serif;
+    color: var(--indigo);
+    background: var(--lime);
+    border: 0;
+    padding: 18px;
+    cursor: pointer;
+    clip-path: var(--jag);
+    transition: transform .12s, background .12s;
+  }
+  .btn:hover { transform: translateY(-2px) rotate(-.4deg); }
+  .btn:disabled { opacity: .6; cursor: wait; transform: none; }
+  .error { color: var(--danger); font-size: 14px; margin: 12px 0 0; min-height: 1em; }
+
+  /* ---------- Success ---------- */
+  .done { display: none; }
+  .done.show { display: block; }
+  .done h2 { margin-bottom: 8px; }
+  .code-box {
+    margin: 22px 0;
+    background: var(--indigo);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+  .code-box small { color: var(--sky); text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 700; }
+  .code-box .code { font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(24px, 7vw, 40px); color: var(--lime); font-weight: 800; letter-spacing: .02em; white-space: nowrap; margin: 4px 0 10px; }
+  .copy {
+    font: 700 13px "DM Sans", sans-serif;
+    background: transparent; color: var(--white);
+    border: 1.5px solid var(--sky); border-radius: 999px;
+    padding: 6px 14px; cursor: pointer;
+  }
+  .bank-title { font-size: 18px; color: var(--indigo); margin: 0 0 10px; }
+  .bank { background: var(--cloud); border-radius: 16px; padding: 18px 20px; }
+  .bank-row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px dashed #cdd8f5; align-items: center; }
+  .bank-row:last-child { border-bottom: 0; }
+  .bank-row span { color: var(--muted); font-size: 14px; }
+  .bank-row b { text-align: right; }
+  .bank-row .copy { color: var(--indigo); border-color: var(--indigo); margin-left: 8px; }
+  .steps { padding-left: 20px; margin: 20px 0 0; }
+  .steps li { margin-bottom: 8px; }
+  .note { margin-top: 18px; font-size: 14px; color: var(--muted); background: #fbfde9; border-left: 4px solid var(--lime); padding: 12px 14px; }
+
+  .closed { text-align: center; padding: 20px 0; }
+  .closed p { color: var(--muted); }
+  .loading { color: var(--muted); padding: 30px 0; text-align: center; }
+
+  footer { text-align: center; color: var(--muted); font-size: 14px; padding: 0 20px 40px; }
+  footer img { width: 44px; display: block; margin: 0 auto 10px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="shape one"></div>
+  <div class="shape two"></div>
+  <div class="hero-inner">
+    <div class="brand">
+      <img src="logo-yellow.png" alt="Boundless Creatives Club logo">
+      <span>Boundless Creatives Club</span>
+    </div>
+    <div class="eyebrow">Community event</div>
+    <h1 id="ev-name">Creative Sandbox</h1>
+    <p class="tagline" id="ev-tagline"></p>
+    <div class="chips">
+      <div class="chip" id="chip-date"></div>
+      <div class="chip" id="chip-time"></div>
+      <div class="chip" id="chip-price"></div>
+      <div class="chip">Venue sent after payment</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+    <section class="about">
+      <h2>What will we be doing this round?</h2>
+      <p id="ev-desc"></p>
+      <ul class="included">
+        <li id="inc-1"></li>
+        <li id="inc-2"></li>
+        <li>Venue details<small>We'll email them once your payment is confirmed.</small></li>
+      </ul>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <div id="state-loading" class="loading">Getting things ready...</div>
+
+      <div id="state-closed" class="closed" hidden>
+        <h2 id="closed-title">This one's full</h2>
+        <p id="closed-text">All spots have been taken. Follow us for the next one.</p>
+      </div>
+
+      <form id="signup" novalidate hidden>
+        <h2>Save your spot</h2>
+        <p class="seats" id="seats"></p>
+
+        <div class="field">
+          <span class="label">Ticket</span>
+          <div class="tickets">
+            <label class="ticket">
+              <input type="radio" name="ticket" value="1" checked>
+              <span><strong id="p1">RM35</strong><em>Just me</em></span>
+            </label>
+            <label class="ticket">
+              <input type="radio" name="ticket" value="2" id="t2">
+              <span><strong id="p2">RM60</strong><em>Me and a friend</em></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="hint">(your payment details and confirmation go here)</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="whatsapp">WhatsApp number</label>
+          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" placeholder="e.g. 012 345 6789" required>
+        </div>
+
+        <div class="friend" id="friend">
+          <div class="field">
+            <label for="friendName">Your friend's name</label>
+            <input type="text" id="friendName" name="friendName">
+          </div>
+          <div class="field">
+            <label for="friendWhatsapp">Your friend's WhatsApp number <span class="hint">(optional, so we can add them to our community chat)</span></label>
+            <input type="tel" id="friendWhatsapp" name="friendWhatsapp">
+          </div>
+          <div class="field">
+            <label for="friendEmail">Your friend's email <span class="hint">(optional, so they get the venue details too)</span></label>
+            <input type="email" id="friendEmail" name="friendEmail">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="work">What do you do? <span class="hint">(your job, your studies, or however you'd describe your days)</span></label>
+          <input type="text" id="work" name="work">
+        </div>
+        <div class="field">
+          <label for="creativity">One small way creativity shows up in your everyday life <span class="hint">(optional)</span></label>
+          <textarea id="creativity" name="creativity" placeholder="How you plate your breakfast, plan your week, talk to your plants..."></textarea>
+        </div>
+        <div class="field">
+          <label for="dietary">Any dietary needs? <span class="hint">(optional)</span></label>
+          <input type="text" id="dietary" name="dietary">
+        </div>
+        <div class="field">
+          <label for="heard">How did you hear about us?</label>
+          <select id="heard" name="heard">
+            <option value="">Choose one</option>
+            <option>Instagram</option>
+            <option>A friend</option>
+            <option>WhatsApp community</option>
+            <option>I came to a previous gathering</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="hp" aria-hidden="true">
+          <label for="website">Leave this empty</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="consent" name="consent" value="yes">
+          <label for="consent">I understand my details are only for Boundless Creatives Club's internal use and won't be shared with anyone else.</label>
+        </div>
+
+        <button class="btn" type="submit" id="submit">Sign me up</button>
+        <p class="error" id="error" role="alert"></p>
+      </form>
+
+      <div class="done" id="done">
+        <h2>Almost there!</h2>
+        <p>Your spot is held for <b id="d-hours">48</b> hours. Transfer <b id="d-amount">RM35</b> to confirm it.</p>
+
+        <div class="code-box">
+          <small>Your payment reference</small>
+          <div class="code" id="d-code">CS261213-XXXX</div>
+          <button class="copy" type="button" data-copy="d-code">Copy code</button>
+        </div>
+
+        <h3 class="bank-title">These are BCC's bank account details</h3>
+        <div class="bank">
+          <div class="bank-row"><span>Bank</span><b id="d-bank"></b></div>
+          <div class="bank-row"><span>Account name</span><b id="d-accname"></b></div>
+          <div class="bank-row"><span>Account no.</span><div><b id="d-accno"></b><button class="copy" type="button" data-copy="d-accno">Copy</button></div></div>
+        </div>
+
+        <ol class="steps">
+          <li>Transfer <b id="d-amount2">RM35</b> to the account above.</li>
+          <li>Put your code <b id="d-code2"></b> in the transfer reference.</li>
+          <li>Once we see it, we'll email you the venue and a calendar link.</li>
+        </ol>
+
+        <p class="note">We've also emailed these details to you. Can't find the email? Check your spam or promotions folder.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <img src="logo-blue.png" alt="">
+  Boundless Creatives Club. Everyone is born a creative.
+</footer>
+
+<script>
+  // ====== PASTE YOUR APPS SCRIPT WEB APP URL BETWEEN THE QUOTES ======
+  const SCRIPT_URL = 'PASTE_YOUR_WEB_APP_URL_HERE';
+  // ====================================================================
+
+  const DEMO = SCRIPT_URL.indexOf('PASTE') === 0; // preview mode until the URL is added
+  const $ = id => document.getElementById(id);
+  let event = null;
+
+  const demoEvent = {
+    'Event name': 'Creative Sandbox',
+    'Status': 'Open',
+    'Tagline': 'A Sunday morning to play, make and meet people who see creativity everywhere.',
+    'Description': "The body often holds what the mind carries. Before 2026 closes, come move with us. BCC is hosting a session of intentional movement, guided by an experienced dance instructor. You don't need any dance foundation to join. You only need to show up and let your body explore for a while.",
+    'Date': 'Sunday, 13 December 2026',
+    'Time': '10am to 1pm',
+    'Price 1 pax': '35', 'Price 2 pax': '60',
+    'Price note': 'Snack and drink included for every pax',
+    seatsLeft: 10, capacity: 10
+  };
+
+  function fill(ev) {
+    event = ev;
+    document.title = ev['Event name'] + ' | Boundless Creatives Club';
+    $('ev-name').textContent = ev['Event name'];
+    $('ev-tagline').textContent = ev['Tagline'];
+    $('ev-desc').textContent = ev['Description'];
+    $('chip-date').innerHTML = '<b>' + esc(ev['Date']) + '</b>';
+    $('chip-time').textContent = ev['Time'];
+    const perPax = Math.min(Number(ev['Price 1 pax']), Number(ev['Price 2 pax']) / 2);
+    $('chip-price').innerHTML = 'From <b>RM' + esc(perPax) + '</b> per pax';
+    $('p1').textContent = 'RM' + ev['Price 1 pax'];
+    $('p2').textContent = 'RM' + ev['Price 2 pax'];
+    $('inc-1').innerHTML = esc(ev['Date']) + '<small>' + esc(ev['Time']) + '</small>';
+    $('inc-2').innerHTML = esc(ev['Price note'] || 'A good morning') +
+      '<small>RM' + esc(ev['Price 1 pax']) + ' for 1 pax, RM' + esc(ev['Price 2 pax']) + ' for 2 pax</small>';
+
+    $('state-loading').hidden = true;
+    const open = String(ev['Status']).toLowerCase() === 'open';
+    if (!open) return showClosed('Sign-ups are closed', 'Keep an eye on our socials for the next gathering.');
+    if (ev.seatsLeft <= 0) return showClosed();
+
+    $('signup').hidden = false;
+    $('seats').innerHTML = ev.seatsLeft <= 5
+      ? 'Only <b>' + ev.seatsLeft + '</b> spot' + (ev.seatsLeft === 1 ? '' : 's') + ' left.'
+      : '<b>' + ev.seatsLeft + '</b> spots left.';
+    if (ev.seatsLeft < 2) { $('t2').disabled = true; }
+  }
+
+  function showClosed(title, text) {
+    $('signup').hidden = true;
+    $('state-closed').hidden = false;
+    if (title) $('closed-title').textContent = title;
+    if (text) $('closed-text').textContent = text;
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
+
+  // Load event details
+  if (DEMO) {
+    fill(demoEvent);
+  } else {
+    fetch(SCRIPT_URL)
+      .then(r => r.json())
+      .then(d => { if (d.ok) fill(d.event); else throw new Error(); })
+      .catch(() => {
+        $('state-loading').textContent = "Sorry, we couldn't load the event details. Please refresh the page or try again later.";
+      });
+  }
+
+  // 1 pax / 2 pax toggle
+  document.querySelectorAll('input[name=ticket]').forEach(r =>
+    r.addEventListener('change', () => {
+      $('friend').classList.toggle('show', $('t2').checked);
+    }));
+
+  // Submit
+  $('signup').addEventListener('submit', e => {
+    e.preventDefault();
+    $('error').textContent = '';
+    document.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+
+    const two = $('t2').checked;
+    const required = ['name', 'email', 'whatsapp'].concat(two ? ['friendName'] : []);
+    let bad = required.filter(id => !$(id).value.trim());
+    if ($('email').value && !/^\S+@\S+\.\S+$/.test($('email').value.trim())) bad.push('email');
+    bad.forEach(id => $(id).classList.add('invalid'));
+    if (bad.length) { $('error').textContent = 'Please fill in the highlighted fields.'; $(bad[0]).focus(); return; }
+    if (!$('consent').checked) { $('error').textContent = 'Please tick the box about how we use your details.'; return; }
+
+    const btn = $('submit');
+    btn.disabled = true; btn.textContent = 'Saving your spot...';
+
+    const body = new URLSearchParams(new FormData($('signup')));
+
+    const request = DEMO
+      ? new Promise(res => setTimeout(() => res({
+          ok: true, code: 'CS261213-A7K2', amount: two ? 60 : 35, paymentHours: 48,
+          bank: { bankName: 'Your bank', accountName: 'Account holder name', accountNumber: '000000000000' }
+        }), 700))
+      : fetch(SCRIPT_URL, { method: 'POST', body: body }).then(r => r.json());
+
+    request.then(d => {
+      if (d.ok) return showDone(d);
+      if (d.error === 'full') {
+        if (d.seatsLeft > 0) { $('error').textContent = 'Only ' + d.seatsLeft + ' spot left, so please choose the 1 pax ticket.'; }
+        else { showClosed(); }
+      } else if (d.error === 'closed') {
+        showClosed('Sign-ups are closed', 'Keep an eye on our socials for the next gathering.');
+      } else {
+        $('error').textContent = 'Something is missing. Please check the form and try again.';
+      }
+    }).catch(() => {
+      $('error').textContent = "Something went wrong on our side. Please try again, or message us if it keeps happening.";
+    }).finally(() => {
+      btn.disabled = false; btn.textContent = 'Sign me up';
+    });
+  });
+
+  function showDone(d) {
+    $('signup').hidden = true;
+    $('d-code').textContent = d.code;
+    $('d-code2').textContent = d.code;
+    $('d-amount').textContent = 'RM' + d.amount;
+    $('d-amount2').textContent = 'RM' + d.amount;
+    $('d-hours').textContent = d.paymentHours || 48;
+    $('d-bank').textContent = d.bank.bankName;
+    $('d-accname').textContent = d.bank.accountName;
+    $('d-accno').textContent = d.bank.accountNumber;
+    $('done').classList.add('show');
+    $('done').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Copy buttons
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-copy]');
+    if (!b) return;
+    const text = $(b.dataset.copy).textContent;
+    const label = b.textContent;
+    try {
+      navigator.clipboard.writeText(text).then(() => {
+        b.textContent = 'Copied'; setTimeout(() => b.textContent = label, 1500);
+      });
+    } catch (err) { /* older browsers: they can still select and copy manually */ }
+  });
+</script>
+</body>
+</html>
